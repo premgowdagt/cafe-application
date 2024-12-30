@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: cafe-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: cafe.local
@@ -11,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: cafe-service
+            name: cafe-app-service  # Ensure this matches your Service name
             port:
               number: 80

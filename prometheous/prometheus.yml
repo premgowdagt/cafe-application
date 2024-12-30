@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'php-metrics'
+    metrics_path: '/metrics.php'  # Correct location for metrics_path
+    static_configs:
+      - targets: ['172.16.51.122:8081']
